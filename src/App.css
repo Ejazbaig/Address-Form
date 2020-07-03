@@ -42,3 +42,31 @@
   min-width: 10%;
   max-width: 50%;
 }
+
+.form-validation {
+  text-align: center;
+  font: italic small-caps bold 12px/30px Georgia, serif;
+}
+
+.navButton {
+  background-image: linear-gradient(
+    to right top,
+    #a3ced3,
+    #75bace,
+    #47a3cc,
+    #1d8bca,
+    #1f70c3
+  );
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 4px;
+  text-align: center;
+  margin: 5px;
+  outline: none;
+  display: block;
+}
+
+.navDiv {
+  display: flex;
+}

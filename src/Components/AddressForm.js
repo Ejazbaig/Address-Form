@@ -1,7 +1,9 @@
 import React from "react";
 import { useFormik } from "formik";
 import Button from "react-bootstrap/Button";
+import { NavLink } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
+import { validate } from "./validation";
 
 const initialValues = {
   name: "",
@@ -21,11 +23,20 @@ function AddressForm(props) {
   const formik = useFormik({
     initialValues,
     onSubmit,
+    validate,
   });
 
   return (
     <Container>
       <div className="myLabel">
+        <div className="navDiv">
+          <NavLink to={"/home"}>
+            <button className="navButton">Go Home</button>
+          </NavLink>
+          <NavLink to={"/back"}>
+            <button className="navButton">Go back</button>
+          </NavLink>
+        </div>
         <h4 className="heading">Add Address</h4>
       </div>
 
@@ -48,6 +59,9 @@ function AddressForm(props) {
                   value={formik.values.name}
                   placeholder="Full name"
                 />
+                {formik.touched.name && formik.errors.name ? (
+                  <div className="form-validation">{formik.errors.name}</div>
+                ) : null}
                 <hr className="myHrStyle"></hr>
                 <input
                   className="inputField"
@@ -59,6 +73,11 @@ function AddressForm(props) {
                   value={formik.values.phoneNumber}
                   placeholder="Mobile Number"
                 />
+                {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+                  <div className="form-validation">
+                    {formik.errors.phoneNumber}
+                  </div>
+                ) : null}
                 <hr className="myHrStyle"></hr>
                 <input
                   className="inputField"
@@ -70,6 +89,11 @@ function AddressForm(props) {
                   value={formik.values.flatNumber}
                   placeholder="Flat No."
                 />
+                {formik.touched.flatNumber && formik.errors.flatNumber ? (
+                  <div className="form-validation">
+                    {formik.errors.flatNumber}
+                  </div>
+                ) : null}
                 <hr className="myHrStyle"></hr>
                 <input
                   className="inputField"
@@ -81,6 +105,9 @@ function AddressForm(props) {
                   value={formik.values.street}
                   placeholder="Street or Colony name"
                 />
+                {formik.touched.street && formik.errors.street ? (
+                  <div className="form-validation">{formik.errors.street}</div>
+                ) : null}
                 <hr className="myHrStyle"></hr>
                 <input
                   className="inputField"
@@ -92,6 +119,9 @@ function AddressForm(props) {
                   value={formik.values.city}
                   placeholder="City"
                 />
+                {formik.touched.city && formik.errors.city ? (
+                  <div className="form-validation">{formik.errors.city}</div>
+                ) : null}
                 <hr className="myHrStyle"></hr>
                 <input
                   className="inputField"
@@ -103,6 +133,9 @@ function AddressForm(props) {
                   value={formik.values.state}
                   placeholder="State"
                 />
+                {formik.touched.state && formik.errors.state ? (
+                  <div className="form-validation">{formik.errors.state}</div>
+                ) : null}
                 <hr className="myHrStyle"></hr>
                 <input
                   className="inputField"
@@ -114,6 +147,9 @@ function AddressForm(props) {
                   value={formik.values.pinCode}
                   placeholder="Pincode"
                 />
+                {formik.touched.pinCode && formik.errors.pinCode ? (
+                  <div className="form-validation">{formik.errors.pinCode}</div>
+                ) : null}
               </div>
             </Col>
           </Row>
